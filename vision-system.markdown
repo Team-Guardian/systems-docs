@@ -3,6 +3,7 @@ Board: Raspberry Pi 2 Model B (for 2016+)
 Image conversion:
 
 Point Grey RAW format
+
 sudo apt-get install imagej
 
 Create a macro and save it as rgb2jpg.ijm:
