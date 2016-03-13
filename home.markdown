@@ -1,2 +1,2 @@
-[Design Documentation](design-documentation)
+[Design Documentation](design-documentation)  
 [Technical Documentation](technical-documentation)
