@@ -38,24 +38,32 @@ A right triangle can be made with the altitude and half of the dimension's angle
 
 The ground coverage `d` can be determined by the following equation:
 
-tan(v/2) = d/2a  
-a * tan(v/2) = d/2  
-d = 2 * a * tan(v/2)  
+`tan(v/2) = d/2a`  
+`a * tan(v/2) = d/2`  
+`d = 2 * a * tan(v/2)`  
 
 An example lens with angles of view of 56.3 degrees horizontal and 43.7 degrees vertical then has the following ground coverage:  
   
-Horizontal: d = 1.070 * a  
-Vertical: d = 0.802 * a
+Horizontal: `d = 1.070 * a`  
+Vertical: `d = 0.802 * a`
 
-At an altitude of 100 metres, the ground coverage in a photo would be 1.070 * 100 = 107 metres by 0.802 * 100 = 80.2 metres.
+At an altitude of 100 metres, the ground coverage in a photo would be `1.070 * 100` = 107 metres by `0.802 * 100` = 80.2 metres.
 
 #### Spatial Resolution
 
 The smallest resolvable detail in an image is determined by the pixel resolution of the camera and the distance to the subject. This size of this smallest detail is called the spatial resolution.
 
-spatial resolution = real-world length / pixels covering this length
+`spatial resolution = real-world length / pixels covering this length`
 
 In the above case, the camera at 100 metres has a horizontal (across image width) coverage of 107 metres and a vertical (across image height) coverage of 80.2 metres. A Point Grey Chameleon3 USB3 camera has a pixel resolution of 2448 by 2048. Applying the above formula:
 
-horizontal resolution = 107 metres / 2448 pixels = 4.371 cm/px  
-vertical resolution = 80.2 metres / 2048 pixels = 3.916 cm/px
+`horizontal resolution = 107 metres / 2448 pixels = 4.371 cm/px`  
+`vertical resolution = 80.2 metres / 2048 pixels = 3.916 cm/px`
+
+#### Determining an Appropriate Capture Speed
+
+Effective image compositing relies on having enough overlap between two successive images, typically about 30%. This allows compositing or stitching software to detect similar features in the images in order to line them up correctly.
+
+The chosen image capture rate depends on the desired overlap `o` as well as the ground coverage `d`. An overlap of 30% gives `o = 0.3`. Since the airplane is moving perpendicular to the camera's horizontal dimension, we can assume that overlap will generally only occur in one dimension. For an overlap factor of 0.3, we will need to capture an image when the camera has moved a distance of `1 - 0.3 =` 0.7 times the vertical coverage.
+
+At an altitude of 100 metres, the vertical coverage with the camera above will be 80.2 metres. We should take a photo every time we pass the threshold `t = 0.7 * 80.2 = ` 56.14 metres. With a typical cruise speed of 20 m/s for the Hugin UAV, this results in a capture interval of `threshold/velocity = 56.14/20 = ` 2.8 seconds or 1/2.8 = 0.36 frames per second.
