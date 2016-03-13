@@ -32,7 +32,7 @@ A camera with a horizontal angle of view `h` and a vertical angle of view `v` po
 
 ![fov-triangle1](https://csil-git2.cs.surrey.sfu.ca/uploads/Guardian/system-docs/581f31e664/fov-triangle1.png)
 
-A right triangle can be made with half of the dimension's angle of view. The base of the triangle is then half of the dimension's visible ground distance.
+A right triangle can be made with the altitude and half of the dimension's angle of view. The base of the triangle is then half of the dimension's visible ground distance.
 
 ![fov-triangle2](https://csil-git2.cs.surrey.sfu.ca/uploads/Guardian/system-docs/5af20cf3c3/fov-triangle2.png)
 
@@ -48,3 +48,14 @@ Horizontal: d = 1.070 * a
 Vertical: d = 0.802 * a
 
 At an altitude of 100 metres, the visible ground area in a photo would be 1.070 * 100 = 107 metres by 0.802 * 100 = 80.2 metres.
+
+#### Spatial Resolution
+
+The smallest resolvable detail in an image is determined by the pixel resolution of the camera and the distance to the subject. This size of this smallest detail is called the spatial resolution.
+
+spatial resolution = real-world length / pixels covering this length
+
+In the above case, the camera at 100 metres has a horizontal (across image width) coverage of 107 metres and a vertical (across image height) coverage of 80.2 metres. A Point Grey Chameleon3 USB3 camera has a pixel resolution of 2448 by 2048. Applying the above formula:
+
+horizontal resolution = 107 metres / 2448 pixels = 4.371 cm/px  
+vertical resolution = 80.2 metres / 2048 pixels = 3.916 cm/px
