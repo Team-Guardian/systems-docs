@@ -92,6 +92,16 @@ The distance travelled can be calculated using the Haversine formula, given the 
 
 Custom software running on the ODROID XU4 single-board computer onboard the UAV controls the Point Grey Chameleon3 machine vision camera. A program written in C++ utilizes Point Grey's FlyCapture SDK to control the camera by sending it trigger commands over a GPIO pin on the XU4. It is also responsible for configuring the camera resolution, image encoding, shutter speed, and other options. We detect that a photo has been taken when the camera sends a signal on a GPIO pin to the XU4. This allows us to pinpoint the exact moment of image capture, which is important for attaining highly-accurate geotagging.
 
-An image processing script written in Python monitors image capture and receives raw image data from the camera over Linux IO streams. It uses ImageMagick to convert the uncompressed raw image to JPG to achieve small file size while maintaining high quality. Converted images are saved to disk and passed to the network module in this script to be transported to the ground wirelessly.
+An image preprocessing script written in Python monitors image capture. When it receives a signal from the camera over GPIO, it saves the most recent GPS and attitude data and tags the incoming image. The raw image data is received from the camera over Linux IO streams. ImageMagick is used to convert the uncompressed raw image to JPG to achieve small file size while maintaining high quality. Converted images are saved to disk and passed to the network module in this script to be transported to the ground wirelessly.
 
 #### Image Transmission
+
+The ODROID XU4 is connected via Ethernet to a Ubiquiti airMAX Bullet M5 which uses a Fat Shark Spironet circularly polarized antenna. The Bullet establishes a 5.8 GHz Wi-Fi link with a Ubiquiti airMAX Rocket M5 which uses a Ubiquiti airMAX AMO-5G13 2x2 MIMO omnidirectional antenna. Images are sent over this link immediately after being converted to JPG, and they arrive at the ground control station for further processing and target identification.
+
+#### Image Processing
+
+Images arrive automatically at the ground control station. The operator marks images according to whether they need to be processed for targets. If an image was taken at an extreme orientation and would not be useful, it may be discarded automatically. All remaining images are added to an ongoing composite. Target detection can be done automatically or manually.
+
+If done automatically, a preprocessing step is required to save time and computing power. The operator is asked to crop each image to the area containing an area of interest. QR codes are identified by first sharpening the image, and then using Otsu's method to reduce the image to two colours. The resulting image can then be scanned for the squares making up the QR code. Polygon targets are identified by detecting coloured markers indicating the corners of the polygon. The markers are joined in a way that results in the maximum internal angle between any three adjacent vertices, giving us the largest shape visible. The shoelace algorithm is used to calculate the area of the shape, and the vertex coordinates are averaged to determine the centroid.
+
+If done manually, the operator performs the image transformation steps in order. To identify a polygon, points can be drawn over the image and joined together, and both the area and centroid of the drawn shape are visible.
