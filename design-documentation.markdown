@@ -24,6 +24,19 @@ This documentation provides complete information about the entire UAV system and
 
 ### Objectives
 
+The vision system should be as hands-free as possible. The major tasks are:
+
+* Capture imagery at an appropriate rate to get good overlap
+* Tag images with telemetry (GPS and attitude data) and transfer them to the ground wirelessly
+* Georeference images using tagged telemetry
+* Detect and identify targets in images, including:
+  * Polygons
+  * QR codes and barcodes
+  * Block letters
+  * Structures reflecting or emitting high amounts of infrared light
+* Output detected target information to text file and/or pass it to the autopilot system for flight path generation
+* Overlay (basic) or stitch (advanced) images into a composite map using tagged telemetry
+
 ### Equations
 
 #### Determining Visible Area in an Image
