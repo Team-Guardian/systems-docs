@@ -87,3 +87,11 @@ The general formula for this camera mounted in landscape orientation relative to
 `= capture interval = ((1 - overlap factor) * 0.802 * altitude) / velocity`
 
 The distance travelled can be calculated using the Haversine formula, given the last GPS coordinates and current GPS coordinates. If the distance is greater than the threshold `t`, then a photo should be taken. As a safeguard, a photo should be taken if one hasn't been taken in several seconds. This will protect against a GPS anomaly that prevents the distance from updating correctly. The system should be prevented from taking photos excessively quickly by requiring that the capture have occurred at least half a second ago (or shorter if intentionally capturing at a high rate) before capturing another.
+
+#### Image Capture
+
+Custom software running on the ODROID XU4 single-board computer onboard the UAV controls the Point Grey Chameleon3 machine vision camera. A program written in C++ utilizes Point Grey's FlyCapture SDK to control the camera by sending it trigger commands over a GPIO pin on the XU4. It is also responsible for configuring the camera resolution, image encoding, shutter speed, and other options. We detect that a photo has been taken when the camera sends a signal on a GPIO pin to the XU4. This allows us to pinpoint the exact moment of image capture, which is important for attaining highly-accurate geotagging.
+
+An image processing script written in Python monitors image capture and receives raw image data from the camera over Linux IO streams. It uses ImageMagick to convert the uncompressed raw image to JPG to achieve small file size while maintaining high quality. Converted images are saved to disk and passed to the network module in this script to be transported to the ground wirelessly.
+
+#### Image Transmission
