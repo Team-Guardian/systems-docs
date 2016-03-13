@@ -105,3 +105,13 @@ Images arrive automatically at the ground control station. The operator marks im
 If done automatically, a preprocessing step is required to save time and computing power. The operator is asked to crop each image to the area containing an area of interest. QR codes are identified by first sharpening the image, and then using Otsu's method to reduce the image to two colours. The resulting image can then be scanned for the squares making up the QR code. Polygon targets are identified by detecting coloured markers indicating the corners of the polygon. The markers are joined in a way that results in the maximum internal angle between any three adjacent vertices, giving us the largest shape visible. The shoelace algorithm is used to calculate the area of the shape, and the vertex coordinates are averaged to determine the centroid.
 
 If done manually, the operator performs the image transformation steps in order. To identify a polygon, points can be drawn over the image and joined together, and both the area and centroid of the drawn shape are visible.
+
+#### Unmanned Systems Canada Targets
+
+Polygons are delineated by corners extending slightly in both directions towards the previous and next corner. The corners are created using coloured ribbon about 1 metre wide.
+
+QR codes measure 2.75 x 2.75 metres, with each square measuring 12.7 x 12.7 cm. An altitude of 50 metres gives us a fair spatial resolution of about 2 centimetres per pixel, which would give each square about 6 by 6 pixels. This area is large enough to allow the QR code to be seen clearly, but flying lower is often possible.
+
+IR illuminators emit light at 940 nm.
+
+Crop probes are cylinders measuring 12 cm in diameter by 10 cm long weighing less than 90 g. They are to be dropped onto the centroid of any crop marked with a letter P measuring 5 x 3 m.
