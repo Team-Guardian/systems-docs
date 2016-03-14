@@ -51,4 +51,4 @@ saveAs("Jpeg", out);
 ```
 
 Execute with:
-imagej -b <name> <infile> <outfile>
+`imagej -b <name> <infile> <outfile>`
