@@ -28,7 +28,7 @@ Convert it to JPG and save the file.
 `img.format = 'jpeg'`  
 `img.save(filename='myimage.jpg')`
 
-### Method 2: Imagej
+### Method 3: Imagej
 
 #### Dependencies
 
