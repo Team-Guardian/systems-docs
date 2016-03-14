@@ -1,12 +1,42 @@
-Board: Raspberry Pi 2 Model B (for 2016+)
+## Converting Point Grey RAW RGB8 format
 
-Image conversion:
+### Method 1: ImageMagick
 
-Point Grey RAW format
+#### Dependencies
 
-sudo apt-get install imagej
+imagemagick (apt)
 
-Create a macro and save it as rgb2jpg.ijm:
+#### Procedure
+
+`convert -size 2448x2048 -depth 8 rgb:<infile> <outfile>.jpg`
+
+### Method 2: Wand (ImageMagick in Python)
+
+#### Dependencies
+
+libmagickwand-dev (apt)  
+wand (pip)
+
+#### Procedure
+
+Read the image bytes into an array `buf` using `read(size)`. Then create the Image object.
+
+`img = Image(blob=buf, width=2448, height=2048, depth=8, format='RGB')`
+
+Convert it to JPG and save the file.
+
+`img.format = 'jpeg'`  
+`img.save(filename='myimage.jpg')`
+
+### Method 2: Imagej
+
+#### Dependencies
+
+imagej (apt)
+
+#### Procedure
+
+Create a macro and save it as <name>.ijm:
 
 ```
 filelist = getArgument();
@@ -21,4 +51,4 @@ saveAs("Jpeg", out);
 ```
 
 Execute with:
-imagej -b rgb2jpg infile outfile
+imagej -b <name> <infile> <outfile>
