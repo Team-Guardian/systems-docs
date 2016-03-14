@@ -22,6 +22,8 @@ This documentation provides complete information about the entire UAV system and
 
 ## Vision System
 
+[Internal Documentation](vision-system)
+
 ### Objectives
 
 The vision system should be as hands-free as possible. The major tasks are:
