@@ -21,6 +21,7 @@ wand (pip)
 
 Read the image bytes into an array `buf` using `read(size)`. Then create the Image object.
 
+`from wand.image import Image`  
 `img = Image(blob=buf, width=2448, height=2048, depth=8, format='RGB')`
 
 Convert it to JPG and save the file.
