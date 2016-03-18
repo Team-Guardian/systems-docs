@@ -53,3 +53,13 @@ saveAs("Jpeg", out);
 
 Execute with:
 `imagej -b <name> <infile> <outfile>`
+
+### Method 4: RAW + Compression
+
+#### Dependencies
+
+pigz (apt)
+
+#### Procedure
+
+`tar cf - myrawfile | pigz > myrawfile.tar.gz`
