@@ -17,4 +17,5 @@ In `/media/boot/boot.ini`, scroll down to `bootargs` line and add `usbcore.usbfs
 #### Vision System (Air)
 
 sudo apt-get install python-dev python-pip
+
 pip install numpy
