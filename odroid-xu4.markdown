@@ -19,3 +19,16 @@ In `/media/boot/boot.ini`, scroll down to `bootargs` line and add `usbcore.usbfs
 sudo apt-get install python-dev python-pip
 
 pip install numpy
+
+## GPIO Communication
+
+Resources:
+
+http://odroid.com/dokuwiki/doku.php?id=en:odroid-xu4#gpio_ports
+
+http://odroid.com/dokuwiki/doku.php?id=en:xu3_enhancement_gpio30
+
+http://odroid.com/dokuwiki/doku.php?id=en:xu4_hardware#expansion_connectors
+
+http://odroid.com/dokuwiki/doku.php?id=en:xu3_hardware_gpio
+
