@@ -6,8 +6,8 @@ This documentation provides complete information about the entire UAV system and
 
 ## Table of Contents
 
-* [Airframe](design-airframe)
-* [Mechanical System](design-mechanical-system)
-* [Electrical and Electronics](design-electrical-and-electronics)
-* [Autopilot](design-autopilot)
-* [Vision System](design-vision-system)
+* [Airframe](airframe)
+* [Mechanical System](mechanical-system)
+* [Electrical and Electronics](electrical-and-electronics)
+* [Autopilot](autopilot)
+* [Vision System](vision-system)
