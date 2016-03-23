@@ -1,5 +1,12 @@
 [Odroid XU4](odroid-xu4)
 
+## Ground Station GUI
+
+### Dependencies
+
+python-pygame libblas-dev liblapack-dev libatlas-base-dev gfortran libzbar-dev (apt)
+simplecv scipy zbar statsmodels qimage2ndarray (pip)
+
 ## Converting Point Grey RAW RGB8 format
 
 ### Method 1: ImageMagick
