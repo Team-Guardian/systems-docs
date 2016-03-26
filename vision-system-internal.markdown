@@ -4,9 +4,9 @@
 
 ### Dependencies
 
-python-pygame libblas-dev liblapack-dev libatlas-base-dev gfortran libzbar-dev (apt)
+sudo apt-get install python-pygame libblas-dev liblapack-dev libatlas-base-dev gfortran libzbar-dev
 
-simplecv scipy zbar statsmodels qimage2ndarray (pip)
+sudo pip install numpy simplecv scipy zbar statsmodels qimage2ndarray
 
 ## Converting Point Grey RAW RGB8 format
 
