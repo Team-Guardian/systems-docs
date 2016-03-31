@@ -16,9 +16,9 @@ In `/media/boot/boot.ini`, scroll down to `bootargs` line and add `usbcore.usbfs
 
 #### Vision System (Air)
 
-sudo apt-get install python-dev python-pip exiv2
+sudo apt-get install python-dev python-pip exiv2 libmagickwand-dev
 
-pip install numpy
+sudo pip install numpy wand
 
 ## GPIO Communication
 
