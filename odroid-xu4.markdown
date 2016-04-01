@@ -14,6 +14,8 @@ http://stackoverflow.com/questions/31995954/pointgrey-sdk-hangs-on-startcapture
 
 In `/media/boot/boot.ini`, scroll down to `bootargs` line and add `usbcore.usbfs_memory_mb=1000`
 
+https://www.ptgrey.com/tan/10357
+
 #### Vision System (Air)
 
 sudo apt-get install python-dev python-pip exiv2 libmagickwand-dev
