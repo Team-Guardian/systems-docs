@@ -18,7 +18,7 @@ https://www.ptgrey.com/tan/10357
 
 #### Vision System (Air)
 
-sudo apt-get install python-dev python-pip exiv2 libmagickwand-dev
+sudo apt-get install python-dev python-pip exiv2 libmagickwand-dev python-pyexiv2 tmux
 
 sudo pip install numpy wand
 
