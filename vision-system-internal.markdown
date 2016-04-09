@@ -1,4 +1,5 @@
 [Odroid XU4](odroid-xu4)
+[Vision system communication](vision-system-communication)
 
 ## Ground Station GUI
 
