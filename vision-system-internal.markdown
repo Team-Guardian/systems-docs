@@ -2,6 +2,8 @@
 
 [Vision system communication](vision-system-communication)
 
+[Point Grey Chameleon3](point-grey-chameleon3)
+
 ## Ground Station GUI
 
 ### Dependencies
