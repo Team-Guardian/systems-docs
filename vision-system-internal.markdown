@@ -4,6 +4,8 @@
 
 [Point Grey Chameleon3](point-grey-chameleon3)
 
+[GUI Programming](gui-programming)
+
 ## Ground Station GUI
 
 ### Dependencies
