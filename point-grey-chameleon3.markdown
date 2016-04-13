@@ -1,5 +1,21 @@
 Command arguments
-- TODO
+- --pixelformat
+   - RGB8
+   - YUV444
+- --width
+- --height
+- --imageformat
+   - jpeg
+   - raw
+- --imagegrab
+   - save
+   - stdout
+- --regulargrabmode
+   - stdin
+   - gpio
+- --irgrabmode
+   - stdin
+   - gpio
 
 Input commands
 - grab/grabir will grab an image and save as jpeg or send to stdout based on command argument
