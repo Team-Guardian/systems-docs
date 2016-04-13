@@ -16,6 +16,7 @@ Command arguments
 - --irgrabmode
    - stdin
    - gpio
+- example: --pixelformat RGB8 --width 2448 --height 2048 --imageformat jpeg --imagegrab save --regulargrabmode gpio --irgrabmode stdin
 
 Input commands
 - grab/grabir will grab an image and save as jpeg or send to stdout based on command argument
