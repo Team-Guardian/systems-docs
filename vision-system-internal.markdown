@@ -6,6 +6,11 @@
 
 [GUI Programming](gui-programming)
 
+## Camera Calibration
+
+    mkdir debug
+    python camera_calibrate.py --debug="debug" --square_size=0.0268 "*.jpg"
+
 ## Ground Station GUI
 
 ### Dependencies
