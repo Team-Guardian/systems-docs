@@ -15,7 +15,7 @@
 
 ### Dependencies
 
-sudo apt-get install python-pygame libblas-dev liblapack-dev libatlas-base-dev gfortran libzbar-dev
+sudo apt-get install python-pygame libblas-dev liblapack-dev libatlas-base-dev gfortran libzbar-dev g++
 
 sudo pip install setuptools numpy simplecv scipy zbar statsmodels qimage2ndarray
 
