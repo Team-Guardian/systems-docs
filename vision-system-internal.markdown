@@ -6,6 +6,8 @@
 
 [GUI Programming](gui-programming)
 
+[Georeferencing](georeferencing)
+
 ## Camera Calibration
 
     mkdir debug
