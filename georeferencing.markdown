@@ -100,6 +100,7 @@ T_body_camera = numpy.array([[0, -1, 0], \
 T_ned_camera = numpy.dot(T_ned_body, T_body_camera) #rotation between camera frame - mapping frame
 ```
 
+T_body_camera represents a rotation of 90 degrees in the Z axis.
 
 #### 6. Use the camera distortion parameters and target pixel location to calculate physical offsets from the camera location
 
