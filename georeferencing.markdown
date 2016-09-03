@@ -26,7 +26,9 @@ Given camera distortion information (intrinsic matrix and k-values), camera GPS 
 
 ### Procedure
 
-Build the Earth spheroid and calculate the radius of curvature
+Coordinates need to be transformed from geodetic (latitude/longitude/altitude) to camera reference frame so that the target pixel can be turned into offsets (northing and easting) to be added to the camera position.
+
+#### 1. Build the Earth ellipsoid and calculate the radius of curvature
 
 ```
 a = 6378137 #semi-major earth axis
@@ -37,7 +39,10 @@ M = (a*(1-e2))/sqrt(1-e2*sin(lat)**2)**3 #meridian radius of curvature
 N = a / sqrt(1-e2*sin(lat)**2) #prime vertical radius of curvature
 ```
 
-Convert from geodetic frame to ECEF (Earth-centered, Earth-fixed)
+The equatorial and polar radii of the Earth are used to construct an ellipsoid. The prime vertical radius of curvature is defined (http://clynchg3c.com/Technote/geodesy/radiigeo.pdf) as the length of a line extending down normal to the surface of the Earth at the desired latitude, ending when it intersects the polar axis. Unless the Earth is perfectly spherical, the line will not intersect the polar axis at the center of the Earth.
+
+
+#### 2. Convert from geodetic frame to ECEF (Earth-centered, Earth-fixed)
 
 ```
 #calculate Earth Centered Earth Fixed plane coordinates
@@ -46,7 +51,10 @@ Ye = (N + alt)*cos(lat)*sin(lon)
 Ze = (N*(1-(e2))+alt)*sin(lat)
 ```
 
-Convert to ECEF at ground level
+The above are the standard formulas for converting from geodetic to ECEF (https://en.wikipedia.org/wiki/Geographic_coordinate_conversion#From_geodetic_to_ECEF_coordinates).
+
+
+#### 3. Convert to ECEF at ground level
 
 ```
 #set up origin, 0 altitude directly below the aircraft
@@ -54,14 +62,15 @@ Xo = (N + 0)*cos(lat)*cos(lon)
 Yo = (N + 0)*cos(lat)*sin(lon)
 Zo = (N*(1-(e2))+0)*sin(lat)
 ```
+
+Set up ECEF coordinates for the ground directly below the camera, used in conversion to NED.
+
 Note that the above calculations erroneously use 0 as the altitude, which will produce an ECEF result for sea level. Instead of 0 altitude, the site elevation should be used.
 
 
-Convert from ECEF to NED using the formula:
+#### 4. Convert from ECEF to NED
 
-P_n = R_n/e (P_e - P_eo)
-
-i.e. position in NED is given by performing a rotation from ECEF to NED on the difference between the ECEF position and the ECEF ground (origin) position.
+Position_ned = Rotation_ecef_to_ned (Position_ecef - Position_ecef_ground)
 
 Below, the rotation matrix is given by T_ned_ecef and the NED position is assigned to C.
 
@@ -76,7 +85,7 @@ C = numpy.dot(T_ned_ecef, (numpy.array([[Xe], [Ye], [Ze]]) - numpy.array([[Xo], 
 #Zned = Pned[2]
 ```
 
-Create rotation matrix from NED to camera frame
+#### 5. Create combined rotation matrix from NED to camera frame
 
 ```
 # transformation between body frame and nav frame
@@ -92,7 +101,7 @@ T_ned_camera = numpy.dot(T_ned_body, T_body_camera) #rotation between camera fra
 ```
 
 
-Use the camera distortion parameters and target pixel location to calculate physical offsets from the camera location
+#### 6. Use the camera distortion parameters and target pixel location to calculate physical offsets from the camera location
 
 ```
 ## Automatic Georeference ##
@@ -111,7 +120,7 @@ Xm, Ym, Zm = C + s[0]*(numpy.dot(numpy.dot(T_ned_camera, numpy.linalg.inv(A)), P
 #print "Xm:", Xm[0], "Ym:", Ym[0], "Zm:", Zm[0] #DEBUG
 ```
 
-Calculate the target coordinates based on the calculated offsets and return them
+#### 7. Calculate the target coordinates based on the calculated offsets and return them
 
 ```
 dLat = self.lat + Xm[0]/111111.1
