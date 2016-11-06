@@ -4,6 +4,8 @@
 
 This method was devised by Irene in 2013. This is an explanation of how it works.
 
+The majority of the code is based off of the research paper that can be found here: https://drive.google.com/open?id=0B4letH9BnUHYOV9rcDBibzVKNUU
+
 ### Purpose
 
 Given camera distortion information (intrinsic matrix and k-values), camera GPS location, and camera orientation, a GPS location can be calculated for a requested pixel location in an image produced by this physical camera at this location and orientation. Site elevation is not taken into account and this may produce different results at different flying sites.
@@ -75,11 +77,14 @@ Position_ned = Rotation_ecef_to_ned (Position_ecef - Position_ecef_ground)
 Below, the rotation matrix is given by T_ned_ecef and the NED position is assigned to C.
 
 ```
-# transfer GPS into nav (North East Down) frame
+# transfer GPS into navigation (North East Down) frame
 T_ned_ecef = numpy.array([[-sin(lat)*cos(lon), -sin(lat)*sin(lon), cos(lat)], \
     [-sin(lon), cos(lon), 0], \
     [-cos(lat)*cos(lon), -cos(lat)*sin(lon), -sin(lat)]])
 C = numpy.dot(T_ned_ecef, (numpy.array([[Xe], [Ye], [Ze]]) - numpy.array([[Xo], [Yo], [Zo]])))
+
+## [Xned, Yned, Zned] is the position of an object in the NED reference frame
+
 #Xned = Pned[0]
 #Yned = Pned[1]
 #Zned = Pned[2]
@@ -109,11 +114,13 @@ T_body_camera represents a rotation of 90 degrees in the Z axis.
 A = self.intrinsicMatrix
 
 T_camera_ned = numpy.linalg.inv(T_ned_camera)
-#C = numpy.array([[Xned], [Yned], [Zned]]) #position information at exposure (nav frame)
+#C = numpy.array([[Xned], [Yned], [Zned]]) #position information at exposure (navigation frame)
 P = numpy.array([[pu], [pv], [1]]) #image frame column vector
 Z = 0 #height of object in image (assumed to be 0 for simplicity)
 z = numpy.dot(numpy.dot(T_ned_camera, numpy.linalg.inv(A)), P)
 s = (Z-C[2])/z[2]
+
+## [Xm, Ym, Zm] is the position of a point relative to the NED frame (called the mapping point)
 
 Xm, Ym, Zm = C + s[0]*(numpy.dot(numpy.dot(T_ned_camera, numpy.linalg.inv(A)), P))
 
