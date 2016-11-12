@@ -17,7 +17,7 @@
 
 ### Dependencies
 
-`sudo apt-get install python-pyexiv2 python-wxgtk3.0 python-matplotlib python-pygame libblas-dev liblapack-dev libatlas-base-dev gfortran libzbar-dev g++ qt4-designer pyqt4-dev-tools`
+`sudo apt-get install python-pyexiv2 python-wxgtk3.0 python-matplotlib python-pygame libblas-dev liblapack-dev libatlas-base-dev gfortran libzbar-dev g++ qt4-designer pyqt4-dev-tools exiv2`
 
 `sudo pip install setuptools numpy simplecv scipy zbar statsmodels qimage2ndarray rpyc pyperclip`
 
