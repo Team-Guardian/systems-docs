@@ -17,9 +17,9 @@
 
 ### Dependencies
 
-sudo apt-get install python-pygame libblas-dev liblapack-dev libatlas-base-dev gfortran libzbar-dev g++
+sudo apt-get install python-pyexiv2 python-wxgtk3.0 python-matplotlib python-pygame libblas-dev liblapack-dev libatlas-base-dev gfortran libzbar-dev g++
 
-sudo pip install setuptools numpy simplecv scipy zbar statsmodels qimage2ndarray
+sudo pip install setuptools numpy simplecv scipy zbar statsmodels qimage2ndarray rpyc
 
 
 ### OpenCV (old method)
