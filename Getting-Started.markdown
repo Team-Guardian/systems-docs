@@ -1,4 +1,4 @@
-Team Guardian makes heavy use of Linux and Python, both of which are very widely used in the software industry and are beneficial to learn. Git is used to deal with code that is worked on by multiple people and to provide a history of the code in the event that and earlier version is needed. Becoming familiar with these tools will allow you to make meaningful contributions to the vision system software.
+Team Guardian makes heavy use of Linux and Python, both of which are very widely used in the software industry and are beneficial to learn. Git is used to deal with code that is worked on by multiple people and to provide a history of the code in the event that an earlier version is needed. Becoming familiar with these tools will allow you to make meaningful contributions to the vision system software.
 
 1. [Linux command line tutorial](http://linuxcommand.org/lc3_learning_the_shell.php)
  * [Alternative tutorial](https://learnpythonthehardway.org/book/appendixa.html)
