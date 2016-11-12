@@ -35,6 +35,8 @@ Execute the lines shown in [Ground Station GUI Dependencies](https://csil-git2.c
 
 When you are writing code, this should be done in a Git feature branch that you create. This leaves you free to make changes without affecting others. When the work is complete and ready to be put into the main branch, you can create a [merge request](https://csil-git2.cs.surrey.sfu.ca/Guardian/vision-system/merge_requests/new). Someone else will review your changes and either approve them or request that more changes be made to conform to code quality standards, fix bugs, or resolve vagueness. Code reviews are a great way to receive direct feedback on your code and learn better ways to do things.
 
+An Integrated Development Environment (IDE) like PyCharm ([free for students](https://www.jetbrains.com/student/)) is very useful for working on projects of this size. It provides features like refactoring and jump to definition, and using one is highly recommended.
+
 ## GUI
 
 The ground station presents a graphical user interface that allows you to classify and categorize incoming images, as well as control the camera capture settings in real time. It makes a connection with the air system and receives images over this link for processing.
