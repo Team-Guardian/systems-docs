@@ -19,20 +19,9 @@
 
 sudo apt-get install python-pyexiv2 python-wxgtk3.0 python-matplotlib python-pygame libblas-dev liblapack-dev libatlas-base-dev gfortran libzbar-dev g++
 
-sudo pip install setuptools numpy simplecv scipy zbar statsmodels qimage2ndarray rpyc
+sudo pip install setuptools numpy simplecv scipy zbar statsmodels qimage2ndarray rpyc pyperclip
 
-
-### OpenCV (old method)
-
-sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
-
-sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
-
-sudo apt-get install libopencv-dev
-
-### OpenCV (new method)
-
-Run opencv_2_4_9.sh script.
+sh opencv_2_4_9.sh
 
 ## Converting Point Grey RAW RGB8 format
 
