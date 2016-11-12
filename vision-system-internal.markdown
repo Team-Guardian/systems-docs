@@ -17,11 +17,11 @@
 
 ### Dependencies
 
-sudo apt-get install python-pyexiv2 python-wxgtk3.0 python-matplotlib python-pygame libblas-dev liblapack-dev libatlas-base-dev gfortran libzbar-dev g++
+`sudo apt-get install python-pyexiv2 python-wxgtk3.0 python-matplotlib python-pygame libblas-dev liblapack-dev libatlas-base-dev gfortran libzbar-dev g++`
 
-sudo pip install setuptools numpy simplecv scipy zbar statsmodels qimage2ndarray rpyc pyperclip
+`sudo pip install setuptools numpy simplecv scipy zbar statsmodels qimage2ndarray rpyc pyperclip`
 
-sh opencv_2_4_9.sh
+`sh opencv_2_4_9.sh`
 
 ## Converting Point Grey RAW RGB8 format
 
