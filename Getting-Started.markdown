@@ -25,3 +25,7 @@ If you don't use Linux already on your computer, the easiest way to start using 
 6. In a terminal, create and navigate to the directory where you want the codebase to reside. For example: `mkdir ~/uav; cd ~/uav`
 7. Type the following: `git clone ssh://git@csil-git2.cs.surrey.sfu.ca:24/Guardian/vision-system.git`
 8. The codebase is cloned to "vision-system" in the current directory.
+
+# Working On the Code
+
+When you are writing code, this should be done in a Git feature branch that you create. This leaves you free to make changes without affecting others. When the work is complete and ready to be put into the main branch, you can create a [merge request](https://csil-git2.cs.surrey.sfu.ca/Guardian/vision-system/merge_requests/new). Someone else will review your changes and either approve them or request that more changes be made to conform to code quality standards, fix bugs, or resolve vagueness.
