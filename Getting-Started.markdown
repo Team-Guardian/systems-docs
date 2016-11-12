@@ -39,6 +39,10 @@ When you are writing code, this should be done in a Git feature branch that you 
 
 The ground station presents a graphical user interface that allows you to classify and categorize incoming images, as well as control the camera capture settings in real time. It makes a connection with the air system and receives images over this link for processing.
 
-The UI framework used is Qt for Python (PyQt4).
+The UI framework used is Qt for Python (PyQt4). The GUI can be modified graphically using Qt Designer (from a terminal: `designer`). A UI file must be converted to a Python file using `pyuic4` for changes to take effect.
 
 ## GIS
+
+Geographic Information Systems enable us to accurately determine geographic coordinates of arbitrary points in images. We make use of Quantum GIS (QGIS) and FME for plotting images on a map and performing measurements. We use GDAL for basic image transformation and Agisoft Photoscan for detailed compositing.
+
+1. [Introduction to GIS](http://docs.qgis.org/2.8/en/docs/gentle_gis_introduction/)
