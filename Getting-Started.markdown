@@ -27,6 +27,18 @@ If you don't use Linux already on your computer, the easiest way to start using 
 7. Type the following: `git clone ssh://git@csil-git2.cs.surrey.sfu.ca:24/Guardian/vision-system.git`
 8. The codebase is cloned to "vision-system" in the current directory.
 
+# Installing Dependencies
+
+Execute the lines shown in [Ground Station GUI Dependencies](https://csil-git2.cs.surrey.sfu.ca/Guardian/system-docs/wikis/vision-system-internal#ground-station-gui).
+
 # Working On the Code
 
 When you are writing code, this should be done in a Git feature branch that you create. This leaves you free to make changes without affecting others. When the work is complete and ready to be put into the main branch, you can create a [merge request](https://csil-git2.cs.surrey.sfu.ca/Guardian/vision-system/merge_requests/new). Someone else will review your changes and either approve them or request that more changes be made to conform to code quality standards, fix bugs, or resolve vagueness. Code reviews are a great way to receive direct feedback on your code and learn better ways to do things.
+
+## GUI
+
+The ground station presents a graphical user interface that allows you to classify and categorize incoming images, as well as control the camera capture settings in real time. It makes a connection with the air system and receives images over this link for processing.
+
+The UI framework used is Qt for Python (PyQt4).
+
+## GIS
