@@ -13,7 +13,7 @@ If you don't use Linux already on your computer, the easiest way to start using 
 
 1. Download free virtualization software such as [VirtualBox](https://www.virtualbox.org/wiki/Downloads) (Windows, Mac OS, Linux) or [VMWare Workstation Player](https://my.vmware.com/web/vmware/free#desktop_end_user_computing/vmware_workstation_player/12_0) (Windows, Linux) and install it.
 2. Download a Linux installation ISO. Recommended: [Linux Mint Cinnamon](https://www.linuxmint.com/edition.php?id=217). Alternative: [Ubuntu](https://www.ubuntu.com/download/desktop).
-3. In your virtualization software, create a new virtual machine using the Linux ISO as the install media. A virtual disk size of 30 GB or more is sufficient. You can use the dynamic disk option so that only the required space is used on your hard drive instead of the full virtual disk size immediately.
+3. In your virtualization software, create a new virtual machine using the Linux ISO as the install media. A virtual disk size of 30 GB or more is sufficient. You can use the dynamic disk option so that only the required space is used on your hard drive instead of the full virtual disk size immediately. Choose the size of the virtual disk wisely as it will not "grow" past the specified size (e.g. 30 GB). 
 4. When Linux has finished installing in the VM, start the VM and become familiar with the interface. The rest of the work relies on having a working Linux installation.
 
 # Getting the Codebase
