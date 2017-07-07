@@ -16,7 +16,7 @@ Once in the Odroid, type:
 
 After this is done, your Odroid will have the latest kernel build for Ubuntu16.04.
 
-Need to add instructions to change Odroid to a static IP.
+Follow the instructions [here](http://www.configserverfirewall.com/ubuntu-linux/ubuntu-set-static-ip-address/) to set a static IP address to the Odroid. Make sure that the address is `192.168.1.XXX` where `XXX` does not conflict with other configured devices. The gateway can be kept as `192.168.1.1` since that is the IP of the bullet.
 
 ### Dependencies
 
