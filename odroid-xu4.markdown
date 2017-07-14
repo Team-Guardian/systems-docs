@@ -32,8 +32,15 @@ Follow instructions [here](https://csil-git3.cs.surrey.sfu.ca/help/ssh/README) t
 
 sudo apt-get install libraw1394-11 libgtkmm-2.4-1v5 libglademm-2.4-1v5 libusb-1.0-0
 
-Need to add instructions for PyCapture2.
-
+Need to add instructions for PyCapture2.   
+   
+pyflycapture2 API:   
+`git clone ssh://git@csil-git3.cs.surrey.sfu.ca:24/Guardian/pyflycapture2.git` in the home directory.   
+  
+Copy the `C` include files that come with the original flycapture API from the downloaded `flycapture_xxx_whatever/include/C` folder to `/usr/include/flycapture/C` folder.   
+  
+Follow the instructions in the pyflycapture README to install the API.
+   
 USB buffer:
   
 http://stackoverflow.com/questions/31995954/pointgrey-sdk-hangs-on-startcapture
