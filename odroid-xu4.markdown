@@ -20,6 +20,14 @@ Follow the instructions [here](http://www.configserverfirewall.com/ubuntu-linux/
 
 ### Dependencies
 
+#### Git setup
+
+sudo apt-get install git
+Follow instructions [here](https://csil-git3.cs.surrey.sfu.ca/help/ssh/README) to create a new SSH key
+
+`git config --global user.name "Guardian on ODroid"`
+`git config --global user.email "uav-exec@sfu.ca"`
+
 #### Point Grey FlyCapture
 
 sudo apt-get install libraw1394-11 libgtkmm-2.4-1v5 libglademm-2.4-1v5 libusb-1.0-0
@@ -42,7 +50,16 @@ sudo pip install numpy wand
 
 ## GPIO Communication
 
-Need to add instructions for setting up [WiringPi2](https://github.com/hardkernel/WiringPi2-Python)
+From the home directory:
+
+```git clone https://github.com/hardkernel/wiringPi.git
+cd wiringPi
+./build
+sudo chmod a+s /usr/local/bin/gpio
+```
+This will install the base WiringPi library and a utility called gpio. Typing `gpio readall` will show the current status of all gpio pins. 
+
+From the home directory, follow instructions for setting up [WiringPi2](https://github.com/hardkernel/WiringPi2-Python) from the README.
 
 Resources:
 
