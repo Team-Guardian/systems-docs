@@ -55,6 +55,10 @@ sudo apt-get install python-dev python-pip exiv2 libmagickwand-dev python-pyexiv
 
 sudo pip install numpy wand
 
+#### PySimpleBCG    
+  
+`sudo pip install pysimplebgc`  
+
 ## GPIO Communication
 
 From the home directory:
