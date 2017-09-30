@@ -30,7 +30,7 @@ Follow instructions [here](https://csil-git3.cs.surrey.sfu.ca/help/ssh/README) t
 
 #### Point Grey FlyCapture
 
-sudo apt-get install libraw1394-11 libgtkmm-2.4-1v5 libglademm-2.4-1v5 libusb-1.0-0
+`sudo apt-get install libraw1394-11 libgtkmm-2.4-1v5 libglademm-2.4-1v5 libusb-1.0-0`
 
 PyCapture2 API:
 - Download latest FlyCapture2 API files from FLIR/ptGrey website. Extract and follow instructions from Readme to install.
