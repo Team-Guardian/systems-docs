@@ -32,7 +32,10 @@ Follow instructions [here](https://csil-git3.cs.surrey.sfu.ca/help/ssh/README) t
 
 sudo apt-get install libraw1394-11 libgtkmm-2.4-1v5 libglademm-2.4-1v5 libusb-1.0-0
 
-Need to add instructions for PyCapture2.   
+PyCapture2 API:
+- Download latest FlyCapture2 API files from FLIR/ptGrey website. Extract and follow instructions from Readme to install.
+- Install `sudo apt-get install python-dev`
+- Download latest PyCapture2 API files from FLIR/ptGrey website. Extract and follow instructions from Readme to install.
    
 pyflycapture2 API:   
 `git clone ssh://git@csil-git3.cs.surrey.sfu.ca:24/Guardian/pyflycapture2.git` in the home directory.   
