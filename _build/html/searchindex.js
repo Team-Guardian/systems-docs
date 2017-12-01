@@ -1,0 +1,1 @@
+Search.setIndex({docnames:["battery-handling","index"],envversion:52,filenames:["battery-handling.rst","index.rst"],objects:{},objnames:{},objtypes:{},terms:{batteri:1,handl:1,index:1,modul:1,page:1,search:1},titles:["Battery Handling Instructions","Systems Documentation"],titleterms:{batteri:0,doc:[],document:1,handl:0,indic:1,instruct:0,system:1,tabl:1,welcom:[]}})
