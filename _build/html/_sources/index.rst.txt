@@ -9,12 +9,3 @@ Systems Documentation
 .. toctree::
 
    Battery Handling <battery-handling>
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

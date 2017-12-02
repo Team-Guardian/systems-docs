@@ -35,7 +35,8 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="systems-docs  documentation" href="index.html"/> 
+    <link rel="top" title="systems-docs  documentation" href="index.html"/>
+        <link rel="prev" title="Systems Documentation" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,11 +85,35 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Battery Handling Instructions</a></li>
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Battery Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#emergency-procedures">Emergency Procedures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#suspected-damage">Suspected Damage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#handling-battery-fire">Handling Battery Fire</a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#charging">Charging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#equipment">Equipment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#charge-rate">Charge Rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#charging-instructions">Charging Instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#storage">Storage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#discharge-rate">Discharge Rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#containers">Containers</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#lithium-polymer-tutorial">Lithium Polymer Tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cells">Cells</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#capacity">Capacity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#balancing">Balancing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#not-for-flight-batteries">“Not for Flight” Batteries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
             
           
         </div>
@@ -152,6 +177,83 @@
             
   <div class="section" id="battery-handling-instructions">
 <h1>Battery Handling Instructions<a class="headerlink" href="#battery-handling-instructions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="emergency-procedures">
+<h2>Emergency Procedures<a class="headerlink" href="#emergency-procedures" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="suspected-damage">
+<h3>Suspected Damage<a class="headerlink" href="#suspected-damage" title="Permalink to this headline">¶</a></h3>
+<p>If a battery is suspected to be damaged, but it’s not on fire or actively swelling - watch the battery for at least 1 hour for the signs of critical damage (e.g. swelling, rising temperature).</p>
+</div>
+<div class="section" id="handling-battery-fire">
+<h3>Handling Battery Fire<a class="headerlink" href="#handling-battery-fire" title="Permalink to this headline">¶</a></h3>
+<p>LiPo fire is a chemical reaction - you can’t put it out with a regular fire extinguisher or sand. That doesn’t mean that you don’t need a fire extinguisher alltogether - it may be useful for putting out firest that the burning LiPo caused. If a battery catches fire, the best thing to do is minimize the collateral damage - or, better yet, prevent the fire from starting.</p>
+<p>When charging, a battery may catch fire if it’s not balanced properly, or battery temperature is significatntly higher or lower than room temperature (more than 30 deg. C or less than 0 deg. C) - let the battery get to ambient temperature before charging it. Good LiPos will maintain ambient temperature when charging, bad LiPos will start heating up. A hot LiPo is a red flag for a bad, dangerous battery about to catch fire.</p>
+<p>Collateral damage will be minimized if a battery is kept inside a LiPo Sack when it’s charging and catches fire. You should always watch the battery when it’s charging, and disconnect it from the charger at first signs of faulty battery.</p>
+<p>If a battery catches on fire, disconnect it from the charger and move the battery away from any combustible objects. If possible, move the burning battery outside, because the smoke is toxic - don’t inhale it!</p>
+</div>
+</div>
+<div class="section" id="charging">
+<h2>Charging<a class="headerlink" href="#charging" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="equipment">
+<h3>Equipment<a class="headerlink" href="#equipment" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Power Supply (todo: insert image here)</li>
+<li>Charger (todo: image)</li>
+<li>Cell checker (todo: image)</li>
+</ul>
+</div>
+<div class="section" id="charge-rate">
+<h3>Charge Rate<a class="headerlink" href="#charge-rate" title="Permalink to this headline">¶</a></h3>
+<p>The battery label and specifications indicate the maximum rate at which the battery can be charged safely. Exceeding this rate will cause the battery to ignite. The charge rate is described in terms of the battery capacity C. The rate in amps is determined by multiplying the capacity in Ah by a fixed value and dropping the hour portion of the unit. For example, a 5Ah battery with a maximum charge rate of 4C can be charged at 4 * 5Ah = 20A. Although this rate is safe to use, the battery will experience the longest lifetime if charged at 1C (the numeric value of the capacity converted to amps).</p>
+</div>
+<div class="section" id="charging-instructions">
+<h3>Charging Instructions<a class="headerlink" href="#charging-instructions" title="Permalink to this headline">¶</a></h3>
+<p>Follow these steps to charge a battery safely:</p>
+<ol class="arabic simple">
+<li>Power on the power supply (to allow output voltage to stabilize);</li>
+<li>Plug in the charger and turn it on;</li>
+<li>Connect the main battery connector to the charger;</li>
+<li>Connect the balance connector to the charger;</li>
+<li>Set the charger to the correct number of cells, capacity, battery chemistry (LiPo, NiMH, etc.), and charge current according to the battery specifications;</li>
+<li>Verify cell voltages and perform a balance charge if voltage differences are unacceptable (&gt;0.05V). Otherwise, perform a regular charge;</li>
+<li>When charging has stopped, disconnect the balance connector and then the main connector;</li>
+</ol>
+</div>
+</div>
+<div class="section" id="storage">
+<h2>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="discharge-rate">
+<h3>Discharge Rate<a class="headerlink" href="#discharge-rate" title="Permalink to this headline">¶</a></h3>
+<p>A similar specification exists for the maximum discharge rate of the battery and limits the ability to do extreme maneuvers. A higher discharge rate is common for applications in which there will be very high throttle usage or rapid changes in power.</p>
+</div>
+<div class="section" id="containers">
+<h3>Containers<a class="headerlink" href="#containers" title="Permalink to this headline">¶</a></h3>
+<p>Batteries must be kept in fireproof bags (LiPo Sack) and the bags kept in metal containers. Batteries for air travel must be in separate fireproof bags and at storage voltage.</p>
+<p>Lids on metal containers should be kept open - the only exception is if the container has vents. If a battery catches fire inside a closed container, pressure inside the container will build up and it’ll explode.</p>
+</div>
+</div>
+<div class="section" id="lithium-polymer-tutorial">
+<h2>Lithium Polymer Tutorial<a class="headerlink" href="#lithium-polymer-tutorial" title="Permalink to this headline">¶</a></h2>
+<p>Lithium-Polymer batteries (LiPos) are highly volatile, and with improper handling they can spontaneously ignite, vent, and explode. Because of this, get an experienced battery handler to help you before you move, charge/discharge, or prepare LiPos for storage.</p>
+<p>LiPo batteries are classified according to number of cells, capacity, charge rate, discharge rate, and wiring plan. They are not resilient to physical damage and any puncture, crush, drop, short circuit, or other damage must be reported.</p>
+<div class="section" id="cells">
+<h3>Cells<a class="headerlink" href="#cells" title="Permalink to this headline">¶</a></h3>
+<p>A lithium-polymer cell has a maximum voltage of 4.2V and a minimum voltage of 3.7V at rest. Under load, voltages will sag and appear to be lower than these values. A cell that is charged above the maximum voltage will likely cause a fire, and a cell that is overdischarged will gain internal resistance, leading to overheating on future charges and possible fire.</p>
+<p>Cells kept at 100% charge deteriorate faster, so batteries should only be charged a short time prior to flight (less than a day) and discharged to storage voltage soon after if not already at that level. Batteries can be stored with their cells between 3.80V and 3.85V resting.</p>
+<p>Battery packs containing multiple cells can be wired in series or parallel. The letters S and P are used in a battery specification to indicate this. For example, we typically use 5S (i.e. 5S1P) batteries. Cells (or batteries) wired in series provide a higher voltage, while wired in parallel provide a longer runtime.</p>
+</div>
+<div class="section" id="capacity">
+<h3>Capacity<a class="headerlink" href="#capacity" title="Permalink to this headline">¶</a></h3>
+<p>A battery is rated for a specific capacity in milliamp-hours (mAh). This value indicates how long a battery lasts at any given current draw and is equal to the current multiplied by the duration. For example, a 5000mAh (or 5Ah) battery can supply 5 amps for one hour, or 2.5 amps for 2 hours, etc.</p>
+</div>
+<div class="section" id="balancing">
+<h3>Balancing<a class="headerlink" href="#balancing" title="Permalink to this headline">¶</a></h3>
+<p>Cells must be kept at similar voltages to avoid high current flow between cells and subsequent overheating and fire when a battery is connected. The balance connector is plugged into the charger to ensure that cells stay at similar voltages (within 0.1V at the worst).</p>
+</div>
+<div class="section" id="not-for-flight-batteries">
+<h3>“Not for Flight” Batteries<a class="headerlink" href="#not-for-flight-batteries" title="Permalink to this headline">¶</a></h3>
+<p>Batteries with this label have been used for a long time, and their performance likely degraded. While they’re not in a bad enough condition to be thrown out, they’re also not reliable enough to be used on a UAV. These batteries should be used with ground station equipment - for example, the antenna tracker.</p>
+</div>
+</div>
 </div>
 
 
@@ -161,6 +263,13 @@
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Systems Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
