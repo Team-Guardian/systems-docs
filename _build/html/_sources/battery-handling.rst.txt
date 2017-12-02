@@ -13,7 +13,7 @@ If a battery is suspected to be damaged, but it's not on fire or actively swelli
 Handling Battery Fire
 ---------------------
 
-LiPo fire is a chemical reaction - you can't put it out with a regular fire extinguisher or sand. That doesn't mean that you don't need a fire extinguisher alltogether - it may be useful for putting out firest that the burning LiPo caused. If a battery catches fire, the best thing to do is minimize the collateral damage - or, better yet, prevent the fire from starting. 
+LiPo fire is a chemical reaction - you can't put it out with a regular fire extinguisher or sand. That doesn't mean that you don't need a fire extinguisher alltogether - it may be useful for putting out fires that the burning LiPo may start. If a battery catches fire, the best thing to do is minimize the collateral damage.
 
 When charging, a battery may catch fire if it's not balanced properly, or battery temperature is significatntly higher or lower than room temperature (more than 30 deg. C or less than 0 deg. C) - let the battery get to ambient temperature before charging it. Good LiPos will maintain ambient temperature when charging, bad LiPos will start heating up. A hot LiPo is a red flag for a bad, dangerous battery about to catch fire. 
 

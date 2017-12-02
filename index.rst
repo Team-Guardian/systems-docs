@@ -6,6 +6,9 @@
 Systems Documentation
 =====================
 
+Contents
+--------
+
 .. toctree::
 
    Battery Handling <battery-handling>
