@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Odroid XU4 Setup Instructions &mdash; systems-docs  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="systems-docs  documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> systems-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="battery-handling.html">Battery Handling</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">systems-docs</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Odroid XU4 Setup Instructions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/odroid-xu4.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="odroid-xu4-setup-instructions">
+<h1>Odroid XU4 Setup Instructions<a class="headerlink" href="#odroid-xu4-setup-instructions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p><strong>Prerequisites.</strong> Download the latest Ubuntu image for ODroid XU4 (<em>Ubuntu 16.04 as of last update</em>) from <a class="reference external" href="https://odroid.in/ubuntu_16.04lts/">here</a>. Grab a copy of <a class="reference external" href="https://etcher.io/">Etcher</a> to flash the image onto a micro-SD card - you’ve got one ready, right?</p>
+<p><strong>Booting Up.</strong> After Etcher is done flashing the image, safely eject the card and plug the micro-SD into the ODroid. Before turning on the power, make sure the boot media slider is set to uSD (not eMMC). Red and blue LEDs will turn on when the ODroid is ready.</p>
+<p><strong>Connecting to ODroid.</strong> Connect the ODroid to a router with an ethernet cable - your PC must be on the router’s network, too, either via a wired or wireless connection. The router must be connected to Internet, otherwise you won’t be able to update the ODroid and pull code from repositories.</p>
+<p>After you connect the ODroid to the router, check it’s IP address either via the homepage of the router, or by scanning the network using <a class="reference external" href="https://nmap.org/">nmap</a>. Let’s assume the IP address of the ODroid is <code class="docutils literal"><span class="pre">192.168.0.17</span></code>. Connect to the ODroid by typing in your terminal:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>ssh odroid@192.168.0.17
+</pre></div>
+</div>
+<p>Confirm you want to continue connecting; when prompted for a password, enter <code class="docutils literal"><span class="pre">odroid</span></code>. Remember, you won’t see the characters you’re entering in the terminal - this is a security feature. If everything goes well, your terminal prompt will change to <code class="docutils literal"><span class="pre">odroid&#64;odroid:~$</span></code>.</p>
+<p><strong>Updating.</strong> After you successfully connect to the ODroid, get the latest updates for Ubuntu by typing in the terminal:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get update
+sudo apt-get upgrade
+</pre></div>
+</div>
+<p>Remember, the default <code class="docutils literal"><span class="pre">sudo</span></code> password is <code class="docutils literal"><span class="pre">odroid</span></code>. The update may take a few minutes - at this point you can grab a cup of coffee, and by the time you’re back the update will have finished.</p>
+<p>After the update is completed, the ODroid is ready to be configured to run your on-board programs.</p>
+</div>
+<div class="section" id="collecting-dependencies">
+<h2>Collecting Dependencies<a class="headerlink" href="#collecting-dependencies" title="Permalink to this headline">¶</a></h2>
+<p><strong>Git.</strong> Git doesn’t come with Ubuntu out-of-the-box, so install it with the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install git
+</pre></div>
+</div>
+<p><strong>Point Grey/FLIR Spinnaker.</strong> Camera control software built with Spinnaker is currently under constructions. This section will be updated with instructions once it’s ready.</p>
+<p><strong>PySimpleBGC.</strong> PySimpleBGC is a Python package providing an API to communicate with <a class="reference external" href="https://www.basecamelectronics.com/simplebgc32ext/">gimbal control board</a>. Install it with <a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a>:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo pip install pysimplebgc
+</pre></div>
+</div>
+<p><strong>WiringPi.</strong> <a class="reference external" href="http://wiringpi.com/">WiringPi</a> is a driver library for accessing GPIO pins on the ODroid. From the home directory (enter <code class="docutils literal"><span class="pre">cd</span> <span class="pre">~</span></code> in terminal to quickly get there), type in the terminal:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone https://github.com/hardkernel/wiringPi.git
+<span class="nb">cd</span> wiringPi/
+./build
+</pre></div>
+</div>
+<p>After the build script finishes executing, test your installation of WiringPi.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>gpio -v
+gpio readall
+</pre></div>
+</div>
+<p>If the installation was successful, you should see something similar in your terminal.</p>
+<a class="reference internal image-reference" href="_images/odroid-xu4-wiring-pi-test"><img alt="Output of `gpio -v` and `gpio readall` commands" src="_images/odroid-xu4-wiring-pi-test" style="width: 531.3px; height: 425.6px;" /></a>
+<p>Finally, get a version of WiringPi with a Python wrapper from <a class="reference external" href="https://github.com/hardkernel/WiringPi2-Python">Hardkernel’s repository</a>:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>git clone https://github.com/hardkernel/WiringPi2-Python.git
+</pre></div>
+</div>
+<p>Finish installing WiringPi2-Python by following the instructions in the README.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Team Guardian.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
