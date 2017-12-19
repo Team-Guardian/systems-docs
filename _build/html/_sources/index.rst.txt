@@ -11,5 +11,6 @@ Contents
 
 .. toctree::
 
-   Battery Handling <battery-handling>
-   Odroid XU4 Setup <odroid-xu4>
+    Getting Started <getting-started>
+    Battery Handling <battery-handling>
+    Odroid XU4 Setup <odroid-xu4>
