@@ -64,7 +64,7 @@ After the build script finishes executing, test your installation of WiringPi.
 
 If the installation was successful, you should see something similar in your terminal.
 
-.. image:: assets/odroid-xu4/odroid-xu4-wiring-pi-test
+.. image:: assets/odroid-xu4/odroid-xu4-wiring-pi-test.png
     :alt: Output of `gpio -v` and `gpio readall` commands
     :scale: 70 %
 
