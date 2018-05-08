@@ -5,7 +5,9 @@ Odroid XU4 Setup Instructions
 Setup
 =====
 
-**Prerequisites.** Download the latest Ubuntu image for ODroid XU4 (*Ubuntu 16.04 as of last update*) from `here <https://odroid.in/ubuntu_16.04lts/>`_. Grab a copy of `Etcher <https://etcher.io/>`_ to flash the image onto a micro-SD card - you've got one ready, right?
+**Prerequisites.** Download the latest Ubuntu image for ODroid XU4 (*Ubuntu 18.04 as of last update*) from `here <https://odroid.in/ubuntu_18.04lts/>`_. Grab a copy of `Etcher <https://etcher.io/>`_ to flash the image onto a micro-SD card - you've got one ready, right?
+
+Warning: some software - especially if it's not popular and maintained by a small team - might not be compatible with the newer versions of Ubuntu (i.e. it was written to work on Ubuntu 16.04 and some changes in Linux libraries for Ubuntu 18.04 break that software). So far, we haven't experienced any issues, but if that's ever a problem, you might have to run the ODroid with the older version of Ubuntu (get 16.04 from `here <https://odroid.in/ubuntu_16.04lts/>`_).
 
 **Booting Up.** After Etcher is done flashing the image, safely eject the card and plug the micro-SD into the ODroid. Before turning on the power, make sure the boot media slider is set to uSD (not eMMC). Red and blue LEDs will turn on when the ODroid is ready. 
 
