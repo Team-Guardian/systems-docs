@@ -58,7 +58,7 @@ Next you will need to unpack the archive - remember to do it with ``sudo`` privi
 
 .. code-block:: bash
 
-    sudo tar xzf
+    sudo tar xzf Python-3.6.5.tgz
 
 Finally, move into the unpacked folder and run the following commands to configure and install Python 3.6.5. Note that both the configuration and installation may take a few minutes.
 
