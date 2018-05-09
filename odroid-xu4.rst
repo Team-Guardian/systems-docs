@@ -41,6 +41,41 @@ Collecting Dependencies
 
     sudo apt-get install git
 
+**Python 3.6.5** Out-of-the-box, Ubuntu 16.04 for ODroid comes with Python 3.5.2, which is too old for us - camera control software was developed using Python 3.6.5 - so we need to get the newer version. First, get all the dependencies needed to compile and install Python.
+
+.. code-block:: bash
+
+    sudo apt-get install build-essential checkinstall libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+
+After these packages have been installed, change your working directory to ``Downloads`` and get Python 3.6.5 source code from ``python.org``.
+
+.. code-block:: bash
+
+    cd ~/Downloads
+    wget https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tgz
+
+Next you will need to unpack the archive - remember to do it with ``sudo`` privileges.
+
+.. code-block:: bash
+
+    sudo tar xzf
+
+Finally, move into the unpacked folder and run the following commands to configure and install Python 3.6.5. Note that both the configuration and installation may take a few minutes.
+
+.. code-block:: bash
+
+    cd Python-3.6.5
+    ./configure
+    sudo make install
+
+You should be able to use Python 3.6.5 immediately after the installation is finished. Type in the terminal ``python3.6 --version`` and you should see ``3.6.5`` in the output.
+
+*Note*: both the default Python2 and Python3 installations don't include ``pip``. However, Python 3.6.5 is bundled with ``pip`` and installing Python also installs ``pip``. Now you can run ``pip`` by typing the following command in the terminal.
+
+.. code-block:: bash
+
+    python3.6 -m pip
+
 **Point Grey/FLIR Spinnaker.** Camera control software built with Spinnaker is currently under constructions. This section will be updated with instructions once it's ready.
 
 **PySimpleBGC.** PySimpleBGC is a Python package providing an API to communicate with `gimbal control board <https://www.basecamelectronics.com/simplebgc32ext/>`_. Install it with `pip <https://pip.pypa.io/en/stable/>`_:
