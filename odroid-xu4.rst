@@ -5,13 +5,13 @@ Odroid XU4 Setup Instructions
 Setup
 =====
 
-**Prerequisites.** Download the full Ubuntu image (not minimal) for ODroid XU4 from `here <https://odroid.in/ubuntu_16.04lts/>`_. Grab a copy of `Etcher <https://etcher.io/>`_ to flash the image onto a micro-SD card - you've got one ready, right?
+**Prerequisites.** Download the full Ubuntu image (not minimal) for ODroid XU4 from `here <https://odroid.in/ubuntu_16.04lts/>`_. Grab a copy of `Etcher <https://etcher.io/>`_ to flash the image onto a micro-SD card - you have one ready, right?
 
-*Warning*: as of writing this, Ubuntu 16.04 is not the latest version of Ubuntu available for the ODroid XU4. The reason we're sticking with 16.04 for now is because some of the software we use - especially the less popular one - might not be compatible with the latest version of Ubuntu. For example, the camera control software provided by FLIR relies on libraries that have been deprecated in Ubuntu 18.04 and only available in Ubuntu 16.04.
+*Note*: as of writing this, Ubuntu 16.04 is not the latest version of Ubuntu available for the ODroid XU4. The reason we're sticking with 16.04 for now is because some of the software we use - especially the less popular one - might not be compatible with the latest version of Ubuntu. For example, the camera control software provided by FLIR relies on libraries that have been deprecated in Ubuntu 18.04 and are only available in Ubuntu 16.04.
 
 **Booting Up.** After Etcher is done flashing the image, safely eject the card and plug the micro-SD into the ODroid. Before turning on the power, make sure the boot media slider is set to uSD (not eMMC). Red and blue LEDs will turn on when the ODroid is ready. 
 
-**Connecting to ODroid.** Connect the ODroid to a router with an ethernet cable - your PC must be on the router's network, too, either via a wired or wireless connection. The router must be connected to Internet, otherwise you won't be able to update the ODroid and pull code from repositories.
+**Connecting to ODroid.** Connect the ODroid to a router with an ethernet cable - your PC must be on the router's network, too, either via a wired or wireless connection. The router must be connected to the internet, otherwise you won't be able to update the ODroid and pull code from repositories.
 
 After you connect the ODroid to the router, check it's IP address either via the homepage of the router, or by scanning the network using `nmap <https://nmap.org/>`_. Let's assume the IP address of the ODroid is ``192.168.0.17``. Connect to the ODroid by typing in your terminal:
 
@@ -28,9 +28,13 @@ Confirm you want to continue connecting; when prompted for a password, enter ``o
     sudo apt-get update
     sudo apt-get upgrade
 
-Remember, the default ``sudo`` password is ``odroid``. The update may take a few minutes - at this point you can grab a cup of coffee, and by the time you're back the update will have finished. 
+Remember, the default ``sudo`` password is ``odroid``. The update may take a few minutes - at this point you can grab a cup of coffee, and by the time you're back the update will have finished. We recommend you reboot the ODroid just in case, although it is not required.
 
-After the update is completed, the ODroid is ready to be configured to run your on-board programs.
+.. code-block:: bash
+
+    sudo reboot
+
+The ODroid might take about a minute to reboot - after a minute you can start trying to connect to the board via ``ssh`` (as described above). After you have successfully connected, the ODroid is ready to be configured to run your on-board programs.
 
 Collecting Dependencies
 =======================
@@ -41,50 +45,36 @@ Collecting Dependencies
 
     sudo apt-get install git
 
-**Python 3.6.5** Out-of-the-box, Ubuntu 16.04 for ODroid comes with Python 3.5.2, which is too old for us - camera control software was developed using Python 3.6.5 - so we need to get the newer version. First, get all the dependencies needed to compile and install Python.
+**Point Grey/FLIR Spinnaker.** To run any camera control software on the ODroid, you will need to install the Spinnaker SDK packages provided by Point Grey. First, you will need to get tarball with the SDK installer onto the ODroid. Downloading from the website requires you to register an account - if you don't want to get one, you can download the tarball from the Team Guardian repository.
 
 .. code-block:: bash
 
-    sudo apt-get install build-essential checkinstall libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+    cd ~/Documents
+    git clone https://github.com/Team-Guardian/spinnaker.git
 
-After these packages have been installed, change your working directory to ``Downloads`` and get Python 3.6.5 source code from ``python.org``.
-
-.. code-block:: bash
-
-    cd ~/Downloads
-    wget https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tgz
-
-Next you will need to unpack the archive - remember to do it with ``sudo`` privileges.
+The version of Spinnaker SDK in our repository is not necessarily the latest, but it's the version we successfully ran our code with before. Once you've downloaded the tarballs, extract the files with the following command.
 
 .. code-block:: bash
 
-    sudo tar xzf Python-3.6.5.tgz
+    tar xvfz spinnaker-<version>_armhf.tar.gz
 
-Finally, move into the unpacked folder and run the following commands to configure and install Python 3.6.5. Note that both the configuration and installation may take a few minutes.
+Next, move into the directory you just extracted (``ls`` if you're unsure what the name of it is). From here, follow the instructions in the README_ARM on installing the Spinnaker SDK. When you get prompted for the name of the user to be added to the user group, enter ``odroid``. Once the installation is complete, reboot the ODroid.
 
-.. code-block:: bash
-
-    cd Python-3.6.5
-    ./configure
-    sudo make install
-
-You should be able to use Python 3.6.5 immediately after the installation is finished. Type in the terminal ``python3.6 --version`` and you should see ``3.6.5`` in the output.
-
-*Note*: both the default Python2 and Python3 installations don't include ``pip``. However, Python 3.6.5 is bundled with ``pip`` and installing Python also installs ``pip``. Now you can run ``pip`` by typing the following command in the terminal.
+After you're done installing the SDK, you will likely need to update the size of USBFS buffer to be able to get images from the camera. There are instructions on how to do that in README_ARM, but they only work on Desktop versions of Ubuntu. To change the size of the buffer on the ODroid, you should modify ``/media/boot/boot.ini`` file instead (`StackOverflow explanation <https://stackoverflow.com/questions/31995954/pointgrey-sdk-hangs-on-startcapture>`_). In the line that sets the ``bootargs``, append ``usbcore.usbfs_memory_mb=1000`` to whatever is already written in quotes (``" "``). 
 
 .. code-block:: bash
 
-    python3.6 -m pip
+    sudo nano /media/boot/boot.ini
 
-**Point Grey/FLIR Spinnaker.** Camera control software built with Spinnaker is currently under constructions. This section will be updated with instructions once it's ready.
-
-**PySimpleBGC.** PySimpleBGC is a Python package providing an API to communicate with `gimbal control board <https://www.basecamelectronics.com/simplebgc32ext/>`_. Install it with `pip <https://pip.pypa.io/en/stable/>`_:
+Once you're finished editing the ``boot.ini`` file, reboot the ODroid. After it turns back on, make sure that the buffer size has been changed successfully.
 
 .. code-block:: bash
 
-    sudo pip install pysimplebgc
+    cat /sys/module/usbcore/parameters/usbfs_memory_mb
 
-**WiringPi.** `WiringPi <http://wiringpi.com/>`_ is a driver library for accessing GPIO pins on the ODroid. From the home directory (enter ``cd ~`` in terminal to quickly get there), type in the terminal: 
+*Note*: if you search Google for "spinnaker sdk odroid xu4 install", you will likely come across these `instructions <https://www.ptgrey.com/tan/11145>`_ on the Point Grey website. We tried following those, but they didn't work because the kernel version they were written for is older than the one we are using. These instructions also tell you to recompile the kernel to change the size of USBFS buffer, which is not necessary (see README_ARM/TROUBLESHOOT USB STREAM).
+
+**WiringPi.** `WiringPi <http://wiringpi.com/>`_ is a driver library for accessing GPIO pins on the ODroid. From the Documents folder (enter ``cd ~/Documents`` in the terminal to quickly get there), type in the terminal: 
 
 .. code-block:: bash
 
@@ -112,3 +102,9 @@ Finally, get a version of WiringPi with a Python wrapper from `Hardkernel's repo
     git clone https://github.com/hardkernel/WiringPi2-Python.git
 
 Finish installing WiringPi2-Python by following the instructions in the README.
+
+**PySimpleBGC.** PySimpleBGC is a Python package providing an API to communicate with `gimbal control board <https://www.basecamelectronics.com/simplebgc32ext/>`_. Install it with `pip <https://pip.pypa.io/en/stable/>`_:
+
+.. code-block:: bash
+
+    sudo pip install pysimplebgc
